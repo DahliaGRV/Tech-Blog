@@ -1,0 +1,11 @@
+
+<h1>       {{#if loggedIn}}
+            <p> {{username}}'s Home Page</p>
+        {{else}}
+       <p>Home Page</p>
+        {{/if}} </h1>
+{{#each blogs}}
+    <h3>{{title}}</h3>
+    <p>{{body}}</p>
+    <hr>
+{{/each}}
