@@ -1,11 +1,16 @@
 
-<h1>       {{#if loggedIn}}
-            <p> {{username}}'s Home Page</p>
-        {{else}}
+<h1> {{#if loggedIn}}
+    <p> {{username}}'s Home Page</p>
+    {{else}}
        <p>Home Page</p>
-        {{/if}} </h1>
+    {{/if}} </h1>
 {{#each blogs}}
     <h3>{{title}}</h3>
     <p>{{body}}</p>
+    <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+  <button type="button" class="btn btn-dark" id="comment">Comment</button>
+</div>
+    
     <hr>
 {{/each}}

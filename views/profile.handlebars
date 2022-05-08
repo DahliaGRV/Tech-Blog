@@ -1,14 +1,18 @@
 <h1>{{username}}'s Dashboard</h1>
 <h2>All your blogs:</h2>
+<hr>
 <form action="" id="newBlog">
     <input type="text" id="title" placeholder="title">
-    <textarea id="body" cols="30" rows="10"></textarea>
-    <button>Submit</button>
+    <hr>
+    <textarea id="body" cols="90" rows="10" placeholder="insert your rad blog entry here!"></textarea>
+ <button type="button" class="btn btn-dark" id="comment">Submit</button>
+    <hr>
 </form>
 {{#each Blogs}}
     <h3>{{title}}</h3>
     <p>{{body}}</p>
-    <button>delete</button>
+  <button type="button" class="btn btn-dark" id="update">Update</button>
+  <button type="button" class="btn btn-dark" id="delete">Delete</button>
     <hr>
 {{/each}}
 
