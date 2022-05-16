@@ -62,7 +62,7 @@ router.put("/:id", (req, res) => {
 
 //delete a Blog
 router.delete("/:id", (req, res) => {
-  console.log(req)
+  // console.log(req)
   Blog.destroy({
     where: {
       id: req.params.id
