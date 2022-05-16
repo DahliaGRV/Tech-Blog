@@ -10,9 +10,13 @@ router.use("/api/blogs",blogRoutes)
 const frontEnd = require("./frontEndRoutes");
 router.use("/",frontEnd)
 
+const commentRoutes = require("./commentRoutes");
+router.use("/api/comments",commentRoutes)
+
 router.get("/showsessions",(req,res)=>{
     res.json(req.session)
 })
+
 
 router.get("/setfaveanimal/:faveanimal",(req,res)=>{
     req.session.favAnimal = req.params.faveanimal;

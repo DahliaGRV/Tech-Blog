@@ -1,18 +1,52 @@
 <h1>{{username}}'s Dashboard</h1>
 <h2>All your blogs:</h2>
 <hr>
-<form action="" id="newBlog">
+<form id="newBlog">
     <input type="text" id="title" placeholder="title">
     <hr>
     <textarea id="body" cols="90" rows="10" placeholder="insert your rad blog entry here!"></textarea>
- <button type="button" class="btn btn-dark" id="comment">Submit</button>
+ <button type="submit" class="btn btn-dark" id="submit">Submit</button>
     <hr>
 </form>
 {{#each Blogs}}
     <h3>{{title}}</h3>
     <p>{{body}}</p>
-  <button type="button" class="btn btn-dark" id="update">Update</button>
-  <button type="button" class="btn btn-dark" id="delete">Delete</button>
+  <button class="btn btn-dark delete" id={{id}}>Delete</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateModal">
+  Update
+</button>
+
+<!-- Modal -->
+<div class="modal fade updateForm" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Your Blog</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="form-group">
+    <label for="titleChange">Title</label>
+    <input type="text" class="form-control" id="titleChange" aria-describedby="title" placeholder={{title}}>
+  </div>
+  <div class="form-group">
+    <label for="bodyChange">Blog Text</label>
+    <input type="text" class="form-control" id="bodyChange" placeholder={{body}}>
+  </div>
+          <button type="submit" id={{id}} class="btn btn-dark update">Save changes</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
     <hr>
 {{/each}}
 

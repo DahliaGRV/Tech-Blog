@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
     });
 });
 //find one
-router.get("/:id", (req, res) => {
+router.get("/:blogId", (req, res) => {
   Blog.findByPk(req.params.id,{})
     .then(dbBlog => {
       res.json(dbBlog);
@@ -46,10 +46,10 @@ router.post("/", (req, res) => {
 });
 
 //update Blog
-router.put("/:id", (req, res) => {
+router.put("/:blogId", (req, res) => {
   Blog.update(req.body, {
     where: {
-      id: req.params.id
+      blogId: req.params.id
     }
   }).then(updatedBlog => {
     res.json(updatedBlog);
@@ -61,10 +61,10 @@ router.put("/:id", (req, res) => {
 });
 
 //delete a Blog
-router.delete("/:id", (req, res) => {
+router.delete("/:blogId", (req, res) => {
   Blog.destroy({
     where: {
-      id: req.params.id
+      blogId: req.params.id
     }
   }).then(delBlog => {
     res.json(delBlog);
