@@ -1,12 +1,13 @@
 console.log("home home");
 
-document.querySelector("#floatingTextarea").forEach((commentBtn)=>{
+document.querySelector(".floatingTextarea").forEach((commentBtn)=>{
     commentBtn.addEventListener("submit",e=>{
         e.preventDefault()
+        const id=e.target.getAttribute("id");
         const blogComment = {
             commentBody:document.querySelector("#floatingTextarea").value,
         }
-        fetch("/api/comments/",{
+        fetch(`/api/comments/${id}`,{
             method:"POST",
             body:JSON.stringify(blogComment),
             headers:{

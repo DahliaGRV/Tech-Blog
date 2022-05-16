@@ -7,9 +7,10 @@
 {{#each blogs}}
     <h3>{{title}}</h3>
     <p>{{body}}</p>
+    <p>{{username}}</p>
     <div class="form-floating">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-  <button type="button" class="btn btn-dark" id="comment">Comment</button>
+  <textarea class="form-control floatingTextarea" placeholder="Leave a comment here" id={{id}}></textarea>
+  <button type="button" class="btn btn-dark" >Comment</button>
 </div>
     
     <hr>

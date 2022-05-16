@@ -61,7 +61,9 @@ router.post("/login", (req, res) => {
         id:foundUser.id,
         username:foundUser.username
       }
-      return res.json(foundUser)
+      const cleanData = foundUser.get({ plain: true });
+      console.log(cleanData);
+      return res.render('home',cleanData)
     } else {
       return res.status(400).json({msg:"wrong login credentials"})
     }

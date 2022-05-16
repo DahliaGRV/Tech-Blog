@@ -32,7 +32,6 @@ document.querySelectorAll(".updateForm").forEach((updateBtn)=>{
             title:document.querySelector("#titleChange").value,
             body:document.querySelector("#bodyChange").value,
         }
-        console.log(updBlog,"updatetest")
         fetch(`/api/blogs/${id}`,{
             method:"PUT",
             body:JSON.stringify(updBlog),
