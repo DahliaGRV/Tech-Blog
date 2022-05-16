@@ -8,7 +8,7 @@ Comment.init({
     // add properites here, ex:
     commentBody: {
         type:DataTypes.TEXT,
-        allowNull:false
+        allowNull:true
     }
 },{
     sequelize 

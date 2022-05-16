@@ -14,9 +14,9 @@ router.get("/",(req,res)=>{
 
 router.post("/:id",(req,res)=>{
     Comment.create({
-        commentBody: req.body.commentBody,
         BlogId: req.params.id,
-        UserId: req.session.user.id
+        UserId: req.session.user.id,
+        commentBody: req.body.commentBody
     }).then(commentData=>{
         res.json(commentData)
     }).catch (err=>{

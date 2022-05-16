@@ -1,11 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const {User,Blog} = require("../models");
+const {User,Blog,Comment} = require("../models");
 
 
 //find all
 router.get("/", (req, res) => {
-  Blog.findAll({})
+  Blog.findAll({
+    include: [
+      {
+        model:Comment
+      },
+      {
+        model: User,
+        attributes:['username']
+      }
+    ]
+  })
     .then(dbBlogs => {
       res.json(dbBlogs);
     })
@@ -16,7 +26,16 @@ router.get("/", (req, res) => {
 });
 //find one
 router.get("/:id", (req, res) => {
-  Blog.findByPk(req.params.id,{})
+  Blog.findByPk(req.params.id,{
+    include: [
+      {
+        model:Comment
+      },{
+        model: User,
+        attributes:['username']
+      }
+    ]
+  })
     .then(dbBlog => {
       res.json(dbBlog);
     })

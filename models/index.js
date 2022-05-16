@@ -2,12 +2,12 @@ const User = require("./User");
 const Blog = require("./Blog");
 const Comment = require("./Comment");
 
-User.hasMany(Blog);
-Blog.belongsTo(User);
+User.hasMany(Blog,{foreignKey:'UserId'});
+Blog.belongsTo(User,{foreignKey:'UserId'});
 
-Blog.hasMany(Comment);
-Comment.belongsTo(Blog);
-Comment.belongsTo(User);
+Blog.hasMany(Comment,{foreingKey:'commentBody'});
+Comment.belongsTo(Blog,{foreignKey:'BlogId'});
+Comment.belongsTo(User,{foreingKey:'UserId'});
 
 
 module.exports = {
