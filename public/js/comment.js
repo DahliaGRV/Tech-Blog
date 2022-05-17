@@ -1,13 +1,12 @@
 console.log("home home");
 
-document.querySelector(".floatingTextarea").forEach((commentBtn)=>{
+document.querySelector("#newComment").forEach((commentBtn)=>{
     commentBtn.addEventListener("submit",e=>{
         e.preventDefault()
-        const id=e.target.getAttribute("id");
         const blogComment = {
-            commentBody:document.querySelector("#floatingTextarea").value,
+            commentBody:document.querySelector("#newComment").value,
         }
-        fetch(`/api/comments/${id}`,{
+        fetch(`/api/comments/`,{
             method:"POST",
             body:JSON.stringify(blogComment),
             headers:{
@@ -17,7 +16,7 @@ document.querySelector(".floatingTextarea").forEach((commentBtn)=>{
             if(res.ok){
                location.reload()
             } else {
-                alert("trumpet sound")
+                alert("Comment could not be commented")
             }
     
         })

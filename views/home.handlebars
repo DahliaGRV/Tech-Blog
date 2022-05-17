@@ -5,12 +5,17 @@
        <p>Home Page</p>
     {{/if}} </h1>
 {{#each blogs}}
-    <h3>{{title}}</h3>
+<div class="card">
+  <div class="card-header">
+    <h3>{{title}}</h3><p class="font-italic">Presented to you by {{User.username}}</p>
+    <p>{{createdAt}}</p>
+  </div>
     <p>{{body}}</p>
-    <p>{{User.username}}</p>
+    <p>{{Comment.commentBody}}</p>
     <div class="form-floating">
-  <textarea class="form-control floatingTextarea" placeholder="Leave a comment here" id={{id}}></textarea>
+  <textarea class="form-control floatingTextarea" placeholder="Leave a comment here" id="newComment"></textarea>
   <button type="button" class="btn btn-dark" >Comment</button>
+</div>
 </div>
     
     <hr>

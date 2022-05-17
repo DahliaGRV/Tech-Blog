@@ -8,7 +8,8 @@ router.get("/", (req, res) => {
   Blog.findAll({
     include: [
       {
-        model:Comment
+        model:Comment,
+        attributes:['commentBody']
       },
       {
         model: User,
@@ -29,7 +30,8 @@ router.get("/:id", (req, res) => {
   Blog.findByPk(req.params.id,{
     include: [
       {
-        model:Comment
+        model:Comment,
+        attributes:['commentBody']
       },{
         model: User,
         attributes:['username']

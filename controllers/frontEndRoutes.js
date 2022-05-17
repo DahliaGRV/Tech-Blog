@@ -16,6 +16,9 @@ router.get("/",(req,res)=>{
             {
                 model:User,
                 attributes:['username']
+            },{
+            model: Comment,
+            attributes:['commentBody']
             }
         ]
     }).then(blogs=>{
@@ -26,7 +29,16 @@ router.get("/",(req,res)=>{
         const loggedIn = req.session.user?true:false
         res.render("home",{blogs:hbsBlogs,loggedIn,username:req.session.user?.username})
     })
-})
+});
+router.get("/comments",(req,res)=>{
+    Comment.findAll().then(comments=>{
+        console.log(comments)
+        const hbsComments = comments.map(comments=>comments.get({plain:true}))
+        console.log("==========")
+        console.log(hbsComments)
+        res.render("home",{comments:hbsComments,username:req.session.user?.username})
+    })
+});
 
 router.get("/login",(req,res)=>{
     if(req.session.user){

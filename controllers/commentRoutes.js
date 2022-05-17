@@ -4,15 +4,14 @@ const {User,Blog,Comment} = require('../models');
 
 router.get("/",(req,res)=>{
     Comment.findAll().then(comments=>{
-        console.log(comments)
-        const hbsComments = comments.map(comments=>comments.get({plain:true}))
-        console.log("==========")
-        console.log(hbsComments)
-        res.render("home",{comments:hbsComments,username:req.session.user?.username})
+        res.json(comments)
     })
-})
+    .catch(err =>{
+        res.status(500).json({ msg:"an error occured",err})
+    });
+});
 
-router.post("/:id",(req,res)=>{
+router.post("/",(req,res)=>{
     Comment.create({
         BlogId: req.params.id,
         UserId: req.session.user.id,
