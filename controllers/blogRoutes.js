@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
       console.log(err);
       res.status(500).json({ msg: "an error occured", err });
     });
-});
+  });
 //find one
 router.get("/:id", (req, res) => {
   Blog.findByPk(req.params.id,{
