@@ -10,7 +10,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3000;
 // Requiring our models for syncing
-const { User, Blog } = require("./models");
+const { User, Blog, Comment} = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
