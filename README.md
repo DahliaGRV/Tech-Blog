@@ -14,6 +14,11 @@
 ## Description
 This project is psuedo blog where a user can sign up, have a saved log in which they can access again in the future. They have a dashboard where their blogs are held. A user can update and/or delete their blogs. The user also has a home page where they can see other people's blogs, who made the blog and they have the option to comment on those blogs. A user can also log out. 
 
+## Screenshots
+![image](https://user-images.githubusercontent.com/98775943/168963965-40b9820f-6579-45cf-ab04-3a368ca15d14.png)
+![image](https://user-images.githubusercontent.com/98775943/168964019-64b04967-a4a0-49fe-b591-d715520791bc.png)
+
+
 ## Installation
 If a user is accessing the application through the deployed heroku app, all they will need to do is sign up! Then they will be able to access the blog information. 
 
