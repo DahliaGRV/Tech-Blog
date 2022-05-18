@@ -11,12 +11,16 @@
     <p>{{createdAt}}</p>
   </div>
     <p>{{body}}</p>
-    <p>{{Comment.commentBody}}</p>
-    <div class="form-floating">
+    {{#each Comments}}
+    <p>{{commentBody}}</p>
+    {{/each}}
+    <form class="form-floating" id={{id}} >
   <textarea class="form-control floatingTextarea" placeholder="Leave a comment here" id="newComment"></textarea>
-  <button type="button" class="btn btn-dark" >Comment</button>
-</div>
+  <button class="btn btn-dark" >Comment</button>
+</form>
 </div>
     
     <hr>
 {{/each}}
+
+<script src="/js/comment.js"></script>

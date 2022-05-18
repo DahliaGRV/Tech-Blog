@@ -11,7 +11,7 @@ router.get("/",(req,res)=>{
     });
 });
 
-router.post("/",(req,res)=>{
+router.post("/:id",(req,res)=>{
     Comment.create({
         BlogId: req.params.id,
         UserId: req.session.user.id,
